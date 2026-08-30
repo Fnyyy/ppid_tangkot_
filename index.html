@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>PPID Kota Tangerang | Layanan Informasi Publik Interaktif</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Modern Animated Mesh Background -->
+  <div class="modern-backdrop">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main id="app-container" class="portrait-app flash-style-container">
+
+    <!-- SCENE 0: BERANDA -->
+    <section id="scene-home" class="app-scene active flash-home">
+
+      <!-- Background wave -->
+      <div class="home-bg-wave"></div>
+
+      <!-- Header Logo Badge -->
+      <div class="flash-home-header">
+        <div class="flash-logo-wrapper">
+          <img src="assets/images/logo-ppid.png" alt="Logo PPID Kota Tangerang" class="flash-logo-img" />
+        </div>
+      </div>
+
+      <!-- Navigation Grid (3 top, 3 bottom) -->
+      <nav class="flash-nav-grid">
+        <button class="flash-grid-btn" data-target="scene-profil">
+          <div class="fgb-icon"><i class="fa-solid fa-circle-info"></i></div>
+          <div class="fgb-text">PROFIL PPID</div>
+        </button>
+        <button class="flash-grid-btn" data-target="scene-layanan">
+          <div class="fgb-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <div class="fgb-text">LAYANAN PPID</div>
+        </button>
+        <button class="flash-grid-btn" data-target="scene-keberatan">
+          <div class="fgb-icon"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+          <div class="fgb-text">KEBERATAN</div>
+        </button>
+        <button class="flash-grid-btn" data-target="scene-sengketa">
+          <div class="fgb-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <div class="fgb-text">SENGKETA INFO</div>
+        </button>
+        <button class="flash-grid-btn" data-target="scene-dasar-hukum">
+          <div class="fgb-icon"><i class="fa-solid fa-gavel"></i></div>
+          <div class="fgb-text">DASAR HUKUM</div>
+        </button>
+        <button class="flash-grid-btn" data-target="scene-daftar-info">
+          <div class="fgb-icon"><i class="fa-solid fa-folder-open"></i></div>
+          <div class="fgb-text">DAFTAR INFO</div>
+        </button>
+      </nav>
+
+      <!-- Bottom Stage: Presenter + Survey -->
+      <div class="flash-bottom-stage">
+        <div class="flash-presenter anim-float">
+          <img src="assets/images/flash-ppid-35.png" alt="Presenter Mascot" />
+        </div>
+        <button class="flash-survey-card" data-target="scene-survei">
+          <div class="fsc-badge"><i class="fa-solid fa-star"></i> RATINGS</div>
+          <div class="fsc-title">SURVEY KEPUASAN</div>
+          <div class="fsc-sub">PELAYANAN INFORMASI</div>
+          <div class="fsc-action">Isi Survei <i class="fa-solid fa-arrow-right"></i></div>
+        </button>
+      </div>
+
+      <!-- Cityscape panorama Kota Tangerang -->
+      <div class="flash-cityscape">
+        <img src="assets/images/bgkota.png" alt="Kota Tangerang" />
+      </div>
+
+    </section>
+
+    <!-- SCENE 1: PROFIL PPID -->
+    <section id="scene-profil" class="app-scene">
+      <header class="scene-navbar glass-nav">
+        <button class="btn-home-back" data-target="scene-home">
+          <i class="fa-solid fa-chevron-left"></i> Beranda
+        </button>
+        <h2 class="scene-title">Profil PPID</h2>
+        <div class="scene-tools"></div>
+      </header>
+
+      <div class="tab-bar modern-tabs">
+        <button class="tab-btn active" data-tab="tab-visimisi">Visi &amp; Misi</button>
+        <button class="tab-btn" data-tab="tab-struktur">Struktur</button>
+        <button class="tab-btn" data-tab="tab-ruang">Ruang Layanan</button>
+      </div>
+
+      <div id="tab-visimisi" class="tab-content active">
+        <div class="interactive-canvas">
+          <img src="assets/images/flash-ppid-42.png" id="img-visimisi" alt="Visi Misi PPID" class="zoomable-img" />
+        </div>
+      </div>
+
+      <div id="tab-struktur" class="tab-content">
+        <div class="interactive-canvas">
+          <img src="assets/images/standing%20banner%20ppid%20baru%20hires%20cetak-06.png" id="img-struktur" alt="Struktur Organisasi" class="zoomable-img" />
+        </div>
+      </div>
+
+      <div id="tab-ruang" class="tab-content">
+        <div class="interactive-canvas">
+          <img src="assets/images/PELAYANAN%20INFO-86-86.png" id="img-ruang" alt="Ruang Pelayanan" class="zoomable-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 2: LAYANAN PPID -->
+    <section id="scene-layanan" class="app-scene">
+      <header class="scene-navbar glass-nav">
+        <button class="btn-home-back" data-target="scene-home">
+          <i class="fa-solid fa-chevron-left"></i> Beranda
+        </button>
+        <h2 class="scene-title">Layanan Informasi</h2>
+        <div class="scene-tools">
+          <button class="tool-btn btn-show-qr" data-qr="assets/images/qrcode.png" data-qr-title="Scan QR - Formulir Permohonan">
+            <i class="fa-solid fa-qrcode"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="tab-bar modern-tabs">
+        <button class="tab-btn active" data-tab="tab-alur">Alur Permohonan</button>
+        <button class="tab-btn" data-tab="tab-syarat">Syarat</button>
+      </div>
+
+      <div id="tab-alur" class="tab-content active">
+        <div class="interactive-canvas">
+          <img src="assets/images/ALUR-PERMOHONAN-87.png" id="img-alur" alt="Alur Permohonan" class="zoomable-img" />
+        </div>
+        <div class="scene-footer-bar">
+          <button class="modern-btn-cta btn-show-qr" data-qr="assets/images/qrcode.png" data-qr-title="Scan QR - Formulir Permohonan">
+            <i class="fa-solid fa-qrcode"></i> Scan QR Formulir Permohonan
+          </button>
+        </div>
+      </div>
+
+      <div id="tab-syarat" class="tab-content">
+        <div class="interactive-canvas">
+          <img src="assets/images/SYARAT-PERMOHONAN-88.png" id="img-syarat" alt="Syarat Permohonan" class="zoomable-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 3: KEBERATAN -->
+    <section id="scene-keberatan" class="app-scene">
+      <header class="scene-navbar glass-nav">
+        <button class="btn-home-back" data-target="scene-home">
+          <i class="fa-solid fa-chevron-left"></i> Beranda
+        </button>
+        <h2 class="scene-title">Keberatan</h2>
+        <div class="scene-tools">
+          <button class="tool-btn btn-show-qr" data-qr="assets/images/qrcode.png" data-qr-title="Scan QR - Formulir Keberatan">
+            <i class="fa-solid fa-qrcode"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="tab-bar modern-tabs">
+        <button class="tab-btn active" data-tab="tab-keb-alur">Alur Keberatan</button>
+        <button class="tab-btn" data-tab="tab-keb-info">Info &amp; Waktu</button>
+      </div>
+
+      <div id="tab-keb-alur" class="tab-content active">
+        <div class="interactive-canvas">
+          <img src="assets/images/keberatan.png" id="img-keb-alur" alt="Alur Keberatan" class="zoomable-img" />
+        </div>
+        <div class="scene-footer-bar">
+          <button class="modern-btn-cta btn-show-qr" data-qr="assets/images/qrcode.png" data-qr-title="Scan QR - Formulir Keberatan">
+            <i class="fa-solid fa-qrcode"></i> Scan QR Formulir Keberatan
+          </button>
+        </div>
+      </div>
+
+      <div id="tab-keb-info" class="tab-content">
+        <div class="interactive-canvas">
+          <img src="assets/images/keberatan-89.png" id="img-keb-info" alt="Info Waktu Keberatan" class="zoomable-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 4: SENGKETA INFORMASI -->
+    <section id="scene-sengketa" class="app-scene">
+      <header class="scene-navbar glass-nav">
+        <button class="btn-home-back" data-target="scene-home">
+          <i class="fa-solid fa-chevron-left"></i> Beranda
+        </button>
+        <h2 class="scene-title">Sengketa Informasi</h2>
+        <div class="scene-tools"></div>
+      </header>
+
+      <div class="tab-bar modern-tabs">
+        <button class="tab-btn active" data-tab="tab-seng-alur">Alur Sengketa</button>
+        <button class="tab-btn" data-tab="tab-seng-detail">Tata Cara Lengkap</button>
+      </div>
+
+      <div id="tab-seng-alur" class="tab-content active">
+        <div class="interactive-canvas">
+          <img src="assets/images/sengketa-1.png" id="img-seng-alur" alt="Alur Sengketa" class="zoomable-img" />
+        </div>
+      </div>
+
+      <div id="tab-seng-detail" class="tab-content">
+        <div class="interactive-canvas">
+          <img src="assets/images/SENGKETA-90.png" id="img-seng-detail" alt="Tata Cara Lengkap" class="zoomable-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 5: DASAR HUKUM -->
+    <section id="scene-dasar-hukum" class="app-scene">
+      <header class="scene-navbar glass-nav">
+        <button class="btn-home-back" data-target="scene-home">
+          <i class="fa-solid fa-chevron-left"></i> Beranda
+        </button>
+        <h2 class="scene-title">Dasar Hukum</h2>
+        <div class="scene-tools"></div>
+      </header>
+
+      <div class="scene-content-area scene-scrollable modern-scroll">
+        <div class="modern-dh-list">
+          <div class="modern-dh-item">
+            <div class="dh-num">1</div>
+            <div class="dh-text">
+              <strong>UU No. 14 Tahun 2008</strong>
+              <span>Keterbukaan Informasi Publik</span>
+            </div>
+          </div>
+          <div class="modern-dh-item">
+            <div class="dh-num">2</div>
+            <div class="dh-text">
+              <strong>PP No. 61 Tahun 2010</strong>
+              <span>Pelaksanaan UU No. 14 Tahun 2008</span>
+            </div>
+          </div>
+          <div class="modern-dh-item">
+            <div class="dh-num">3</div>
+            <div class="dh-text">
+              <strong>Perwal No. 1 Tahun 2021</strong>
+              <span>Penyelenggaraan Pelayanan Informasi Publik</span>
+            </div>
+          </div>
+          <div class="modern-dh-item">
+            <div class="dh-num">4</div>
+            <div class="dh-text">
+              <strong>SK Walikota No. 800/Kep.28-KOMINFO/2021</strong>
+              <span>Pengelola Layanan Informasi &amp; Dokumentasi</span>
+            </div>
+          </div>
+          <div class="modern-dh-item">
+            <div class="dh-num">5</div>
+            <div class="dh-text">
+              <strong>Permenkominfo No. 17 Tahun 2019</strong>
+              <span>SOP Layanan Informasi Publik</span>
+            </div>
+          </div>
+          <div class="modern-dh-item">
+            <div class="dh-num">6</div>
+            <div class="dh-text">
+              <strong>Lampiran Perwal 1/2021</strong>
+              <span>SOP Permohonan Informasi & Keberatan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dh-portal-cta" style="display:flex; justify-content:center;">
+          <a href="https://ppid.tangerangkota.go.id" target="_blank" class="modern-btn-portal">
+            <i class="fa-solid fa-globe"></i> Buka Portal Web PPID
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 6: DAFTAR INFORMASI PUBLIK -->
+    <section id="scene-daftar-info" class="app-scene daftar-teal-scene">
+
+      <!-- Teal background image -->
+      <div class="daftar-teal-bg"></div>
+
+      <!-- Header -->
+      <header class="daftar-teal-header">
+        <button class="daftar-kembali-btn" data-target="scene-home">
+          Kembali
+        </button>
+        <h2>DAFTAR INFORMASI PUBLIK</h2>
+      </header>
+
+      <!-- Cards grid -->
+      <div class="daftar-teal-scroll">
+        <div class="daftar-teal-grid">
+
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-map"></i></div>
+            <div class="dteal-text">Informasi Perencanaan Daerah</div>
+          </div>
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+            <div class="dteal-text">Informasi Perizinan dan Pelayanan Masyarakat</div>
+          </div>
+
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <div class="dteal-text">Informasi Keuangan Daerah</div>
+          </div>
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-handshake"></i></div>
+            <div class="dteal-text">Informasi Pengadaan Barang, Jasa dan Kerjasama</div>
+          </div>
+
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="dteal-text">Informasi Hukum dan Pemerintahan</div>
+          </div>
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="dteal-text">Informasi Laporan Kinerja</div>
+          </div>
+
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <div class="dteal-text">Informasi Kepegawaian, Pendidikan dan Pelatihan</div>
+          </div>
+          <div class="dteal-card">
+            <div class="dteal-icon"><i class="fa-solid fa-chart-column"></i></div>
+            <div class="dteal-text">Data Informasi Statistik dan Publikasi</div>
+          </div>
+
+          <div class="dteal-card dteal-card-full">
+            <div class="dteal-icon"><i class="fa-solid fa-computer"></i></div>
+            <div class="dteal-text">Data dan Dokumen Pelayanan Informasi Publik</div>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="daftar-teal-footer">
+          <img src="assets/images/logo-ppid.png" alt="PPID" />
+          <span>https://ppid.tangerangkota.go.id</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SCENE 7: SURVEY KEPUASAN -->
+    <section id="scene-survei" class="app-scene">
+      <div class="scene-content-area survey-modern-bg">
+        <div class="survey-header">
+          <button class="btn-home-back survey-back" data-target="scene-home">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <h2 class="survey-title">SURVEY KEPUASAN</h2>
+          <p>Pelayanan Informasi Publik</p>
+        </div>
+
+        <div class="survey-options modern-survey-options">
+          <button class="survey-btn-modern" onclick="alert('Terima kasih atas penilaian Sangat Baik Anda!')">
+            <div class="emoji">😍</div>
+            <div class="label">Sangat Baik</div>
+          </button>
+          <button class="survey-btn-modern" onclick="alert('Terima kasih atas penilaian Baik Anda!')">
+            <div class="emoji">😀</div>
+            <div class="label">Baik</div>
+          </button>
+          <button class="survey-btn-modern" onclick="alert('Terima kasih atas penilaian Cukup Anda!')">
+            <div class="emoji">😊</div>
+            <div class="label">Cukup</div>
+          </button>
+          <button class="survey-btn-modern" onclick="alert('Terima kasih atas penilaian Kurang Baik Anda!')">
+            <div class="emoji">😟</div>
+            <div class="label">Kurang Baik</div>
+          </button>
+          <button class="survey-btn-modern" onclick="alert('Terima kasih atas penilaian Sangat Kurang Baik Anda!')">
+            <div class="emoji">😭</div>
+            <div class="label">Sangat Kurang</div>
+          </button>
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="survey-qr-section">
+          <div class="survey-qr-label">Atau scan QR untuk mengisi survei online:</div>
+          <div class="survey-qr-box">
+            <img src="assets/images/qrcode.png" alt="QR Code Survey Kepuasan" class="survey-qr-img" />
+          </div>
+          <div class="survey-qr-url">ppid.tangerangkota.go.id</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QR CODE OVERLAY MODAL -->
+    <div id="qr-modal" class="modern-modal-overlay">
+      <div class="modern-modal-content">
+        <button class="btn-close-qr" id="btnCloseQR"><i class="fa-solid fa-xmark"></i></button>
+        <h3 id="qrModalTitle">Scan QR Code</h3>
+        <div class="modern-qr-box">
+          <img src="" id="qrModalImg" alt="QR Code" />
+        </div>
+        <p>Arahkan kamera HP Anda untuk membuka tautan resmi layanan PPID Kota Tangerang.</p>
+        <a href="https://ppid.tangerangkota.go.id" target="_blank" rel="noopener noreferrer" class="modern-btn-portal">
+          <i class="fa-solid fa-globe"></i> Buka Portal Web
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

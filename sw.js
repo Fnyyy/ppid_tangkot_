@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ppid-kiosk-v3';
+const CACHE_NAME = 'ppid-kiosk-v4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

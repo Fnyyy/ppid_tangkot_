@@ -30,6 +30,9 @@ function initSceneManager() {
     allScenes.forEach(s => {
       s.classList.toggle('active', s.id === sceneId);
     });
+    if (sceneId === 'scene-dasar-hukum') {
+      loadDasarHukumWeb();
+    }
     resetAllZooms();
   }
 
@@ -233,4 +236,57 @@ function initIframeOverlay() {
   if (btnClose) btnClose.addEventListener('click', closeModal);
   if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+}
+
+/* ==========================================================================
+   7. LOAD EXTERNAL WEB INTO IFRAME (CORS BYPASS)
+   ========================================================================== */
+let dhWebLoaded = false;
+function loadDasarHukumWeb() {
+  if (dhWebLoaded) return; // Only load once
+  
+  const iframe = document.getElementById('mainDasarHukumIframe');
+  const loader = document.getElementById('iframeLoadingIndicator');
+  if (!iframe) return;
+
+  const targetUrl = 'https://ppid.tangerangkota.go.id/dasar_hukum';
+  // Use a reliable public CORS proxy
+  const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(targetUrl);
+
+  fetch(proxyUrl)
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+      let html = data.contents;
+      // Inject base tag so relative links/assets (css, images) load correctly from the original site
+      if (html.includes('<head>')) {
+        html = html.replace('<head>', '<head><base href="https://ppid.tangerangkota.go.id/">');
+      } else {
+        html = '<head><base href="https://ppid.tangerangkota.go.id/"></head>' + html;
+      }
+      
+      // Inject a script to disable all link targets so they don't pop out
+      const injectScript = `<script>
+        document.addEventListener('click', function(e) {
+          const link = e.target.closest('a');
+          if (link) link.removeAttribute('target');
+        });
+      </script>`;
+      html = html.replace('</body>', injectScript + '</body>');
+
+      // Set the content directly into the iframe
+      iframe.srcdoc = html;
+      
+      // Hide loader once the iframe finishes processing the injected HTML
+      if (loader) loader.style.display = 'none';
+      dhWebLoaded = true;
+    })
+    .catch(error => {
+      console.error('Error loading PPID web:', error);
+      if (loader) {
+        loader.innerHTML = '<div style="color:#ef4444;"><i class="fa-solid fa-triangle-exclamation fa-2x"></i><br/>Gagal memuat situs. Pastikan Anda terhubung ke internet.</div>';
+      }
+    });
 }

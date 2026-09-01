@@ -1348,6 +1348,37 @@ a.dteal-card.dteal-link:hover .dteal-icon {
 }
 
 /* ==========================================================================
+   DIRECT EMBEDDED IFRAME BOX (DASAR HUKUM SCENE)
+   ========================================================================== */
+.iframe-scene-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 70px);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.embedded-iframe-box {
+  flex: 1;
+  width: 100%;
+  min-height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+  border: 2px solid rgba(255,255,255,0.25);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.embedded-iframe-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ==========================================================================
    NATIVE DASAR HUKUM CARD LIST
    ========================================================================== */
 .dh-native-list {

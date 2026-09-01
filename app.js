@@ -30,9 +30,7 @@ function initSceneManager() {
     allScenes.forEach(s => {
       s.classList.toggle('active', s.id === sceneId);
     });
-    if (sceneId === 'scene-dasar-hukum') {
-      loadDasarHukumWeb();
-    }
+    
     resetAllZooms();
   }
 

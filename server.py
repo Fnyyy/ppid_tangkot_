@@ -4,7 +4,7 @@ import urllib.request
 import urllib.parse
 import sys
 
-PORT = 8000
+PORT = 8080
 
 class ProxyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):

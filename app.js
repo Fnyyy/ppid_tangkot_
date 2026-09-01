@@ -211,8 +211,8 @@ function initIframeOverlay() {
   }
 
   document.addEventListener('click', (e) => {
-    // Check if clicked element is dh-link or dteal-link
-    const link = e.target.closest('.dh-link') || e.target.closest('.dteal-link');
+    // Check if clicked element is dh-pdf-link or dteal-link
+    const link = e.target.closest('.dh-pdf-link') || e.target.closest('.dteal-link');
     if (!link) return;
     
     // Prevent default opening in new tab
@@ -222,7 +222,7 @@ function initIframeOverlay() {
     
     // Find text content for the modal title
     let title = 'Dokumen Informasi';
-    const textElement = link.querySelector('.dh-text') || link.querySelector('.dteal-text');
+    const textElement = link.querySelector('.dh-card-title') || link.querySelector('.dteal-text');
     if (textElement) {
       title = textElement.textContent.trim();
     }

@@ -489,6 +489,27 @@ html, body {
   text-align: center;
   line-height: 1.35;
 }
+/* Dasar Hukum item as clickable link */
+a.modern-dh-item.dh-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+a.modern-dh-item.dh-link:hover {
+  background: #3a78cc;
+  transform: translateX(5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.dh-arrow {
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.65rem;
+  transition: color 0.2s, transform 0.2s;
+}
+a.modern-dh-item.dh-link:hover .dh-arrow {
+  color: #fff;
+  transform: translateX(3px) translateY(-2px);
+}
 .modern-btn-portal {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: linear-gradient(135deg, #0ea5e9, #0284c7);
@@ -808,6 +829,15 @@ html, body {
   color: #38bdf8;
   letter-spacing: 0.05em;
 }
+.survey-qr-url-link {
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.survey-qr-url-link:hover {
+  color: #7dd3fc;
+  text-shadow: 0 0 10px rgba(56,189,248,0.6);
+  text-decoration: underline;
+}
 
 /* ==========================================================================
    FLASH-STYLE HOME — container override
@@ -852,6 +882,7 @@ html, body {
   padding: 1.2rem 1.4rem 0.5rem;
 }
 .flash-logo-wrapper {
+  position: relative;
   background: rgba(255, 255, 255, 0.95);
   padding: 8px 22px;
   border-radius: 999px;
@@ -859,11 +890,42 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+}
+/* Logo animation: gentle float */
+a.flash-logo-wrapper.flash-logo-anim {
+  animation: logoFloat 3.5s ease-in-out infinite;
+  cursor: pointer;
+}
+a.flash-logo-wrapper.flash-logo-anim:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 36px rgba(0,100,255,0.5), inset 0 1px 0 rgba(255,255,255,0.9);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+/* Pulsing glow ring behind logo */
+.flash-logo-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 2.5px solid rgba(56, 189, 248, 0.7);
+  animation: logoRingPulse 2.8s ease-in-out infinite;
+  pointer-events: none;
 }
 .flash-logo-img {
   height: 48px;
   width: auto;
   object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+/* Keyframes */
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes logoRingPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%       { opacity: 0.15; transform: scale(1.18); }
 }
 
 /* Neon Pill Buttons */
@@ -1139,6 +1201,21 @@ html, body {
   color: rgba(255,255,255,0.9);
   line-height: 1.4;
 }
+/* Daftar Informasi card as clickable link */
+a.dteal-card.dteal-link {
+  text-decoration: none;
+}
+a.dteal-card.dteal-link:hover {
+  background: rgba(0,100,200,0.4);
+  border-color: rgba(100,200,255,0.6);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0,100,200,0.35);
+}
+a.dteal-card.dteal-link:hover .dteal-icon {
+  box-shadow: 0 0 20px rgba(14,165,233,0.7);
+  transform: scale(1.1);
+}
+
 
 /* Footer */
 .daftar-teal-footer {
@@ -1162,4 +1239,56 @@ html, body {
   color: rgba(255,255,255,0.55);
   font-family: var(--font-body);
   letter-spacing: 0.05em;
+}
+/* Clickable footer link */
+.daftar-footer-link {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.daftar-footer-link:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+  text-decoration: underline;
+}
+/* Portal Web button at bottom of scene */
+.daftar-portal-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+.daftar-portal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 100%);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.22s, transform 0.18s, box-shadow 0.22s, border-color 0.22s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.daftar-portal-btn i {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.daftar-portal-btn:hover,
+.daftar-portal-btn:active {
+  background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.12) 100%);
+  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.22);
 }

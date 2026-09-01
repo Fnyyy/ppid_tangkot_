@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabSystem();
   initCanvasZoom();
   initQROverlay();
+  initIframeOverlay();
 });
 
 /* ==========================================================================
@@ -179,6 +180,54 @@ function initQROverlay() {
     const src = btn.getAttribute('data-qr');
     const title = btn.getAttribute('data-qr-title');
     if (src) showModal(src, title);
+  });
+
+  if (btnClose) btnClose.addEventListener('click', closeModal);
+  if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+}
+
+/* ==========================================================================
+   6. IFRAME OVERLAY MODAL
+   ========================================================================== */
+function initIframeOverlay() {
+  const modal = document.getElementById('iframe-modal');
+  const btnClose = document.getElementById('btnCloseIframe');
+  const docIframe = document.getElementById('docIframe');
+  const modalTitle = document.getElementById('iframeModalTitle');
+
+  function showModal(url, title) {
+    if (!modal || !docIframe) return;
+    docIframe.src = url;
+    if (modalTitle) modalTitle.textContent = title || 'Dokumen Informasi';
+    modal.classList.add('show');
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('show');
+      if (docIframe) docIframe.src = '';
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    // Check if clicked element is dh-link or dteal-link
+    const link = e.target.closest('.dh-link') || e.target.closest('.dteal-link');
+    if (!link) return;
+    
+    // Prevent default opening in new tab
+    e.preventDefault();
+    
+    const url = link.getAttribute('href');
+    
+    // Find text content for the modal title
+    let title = 'Dokumen Informasi';
+    const textElement = link.querySelector('.dh-text') || link.querySelector('.dteal-text');
+    if (textElement) {
+      title = textElement.textContent.trim();
+    }
+    
+    if (url) showModal(url, title);
   });
 
   if (btnClose) btnClose.addEventListener('click', closeModal);
